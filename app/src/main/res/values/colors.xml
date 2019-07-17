@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/teal_500</color>
+    <color name="colorPrimaryDark">@color/teal_800</color>
+    <color name="colorAccent">@color/pink_800</color>
+    <color name="colorSecondary">@color/red_700</color>
+    <color name="colorError">@color/red_900</color>
+
+    <color name="teal_500">#009688</color>
+    <color name="teal_800">#00695c</color>
+    <color name="pink_800">#ad1457</color>
+    <color name="red_700">#d32f2f</color>
+    <color name="red_900">#b71c1c</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="silver">#C0C0C0</color>
+
+    <color name="bg_white">@color/white</color>
+    <color name="bg_silver">@color/silver</color>
+
+    <color name="text_black">@color/black</color>
+
+</resources>

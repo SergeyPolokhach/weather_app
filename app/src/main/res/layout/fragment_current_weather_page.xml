@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:id="@+id/llDataContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_rounded_blue"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvCityName"
+            style="@style/AvenirRegular.BlackBodyMedium.TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Dnipro" />
+
+        <TextView
+            android:id="@+id/tvTemp"
+            style="@style/AvenirRegular.BlackBodyMedium.TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/tvPressure"
+            style="@style/AvenirRegular.BlackBodyMedium.TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/tvHumidity"
+            style="@style/AvenirRegular.BlackBodyMedium.TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/tvWindSpeed"
+            style="@style/AvenirRegular.BlackBodyMedium.TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/AvenirRegular.BlackBodyMedium.TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="20" />
+    </LinearLayout>
+</FrameLayout>

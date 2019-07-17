@@ -1,0 +1,133 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion as Integer
+    buildToolsVersion rootProject.ext.buildToolsVersion as String
+
+    defaultConfig {
+        applicationId "com.polohach.weather"
+        minSdkVersion rootProject.ext.minSdkVersion as Integer
+        targetSdkVersion rootProject.ext.targetSdkVersion as Integer
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        def filesAuthorityValue = applicationId + ".fileprovider"
+        manifestPlaceholders = [filesAuthority: filesAuthorityValue]
+        buildConfigField("String", "FILES_AUTHORITY", "\"${filesAuthorityValue}\"")
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation": "$projectDir/schemas".toString(),
+                        "room.incremental"   : "true"]
+                includeCompileClasspath true
+            }
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("./debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+    buildTypes {
+        all {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "SECURE_PREF_NAME", '"name_prefs.xml"'
+            buildConfigField "String", "SECURE_PREF_PASSWORD", '"qwerty123"'
+            buildConfigField "String", "DB_NAME", '"weather-db"'
+            resValue "string", "weather_api_key", "be495ac0c52f026ed70fa637317fe9b7"
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+            signingConfig signingConfigs.debug
+            buildConfigField "String", "ENDPOINT", '"https://api.openweathermap.org/data/"'
+        }
+        release {
+            minifyEnabled true
+            debuggable false
+            buildConfigField "String", "ENDPOINT", '"https://api.openweathermap.org/data/"'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Support
+    implementation rootProject.ext.supportDependencies.lifecycleExtension
+    implementation rootProject.ext.supportDependencies.constraintlayout
+    implementation rootProject.ext.supportDependencies.recyclerView
+    implementation rootProject.ext.supportDependencies.appCompat
+    implementation rootProject.ext.supportDependencies.multiDex
+    implementation rootProject.ext.supportDependencies.kotlin
+    implementation rootProject.ext.supportDependencies.design
+
+    // Bootstrap
+    implementation rootProject.ext.bootstrapDependencies.core
+    implementation rootProject.ext.bootstrapDependencies.ext
+
+    // Anko
+    implementation rootProject.ext.ankoDependencies.lib
+    implementation rootProject.ext.ankoDependencies.commons
+    implementation rootProject.ext.ankoDependencies.common
+
+    // Stetho
+    implementation rootProject.ext.stethoDependencies.lib
+
+    // RxPermissions
+    implementation rootProject.ext.rxPermissionsDependencies.lib
+
+    // RxJava
+    implementation rootProject.ext.rxDependencies.rxJava2
+    implementation rootProject.ext.rxDependencies.rxKotlin
+
+    // Retrofit
+    implementation rootProject.ext.retrofitDependencies.converter
+    implementation rootProject.ext.retrofitDependencies.retrofit
+    implementation rootProject.ext.retrofitDependencies.adapter
+
+    // Jackson
+    implementation rootProject.ext.jacksonDependencies.interceptor
+    implementation rootProject.ext.jacksonDependencies.annotations
+    implementation rootProject.ext.jacksonDependencies.databind
+    implementation rootProject.ext.jacksonDependencies.core
+    implementation rootProject.ext.jacksonDependencies.joda
+
+    // Room
+    implementation rootProject.ext.room.runtime
+    implementation rootProject.ext.room.rxJava2
+    kapt rootProject.ext.room.compiler
+
+    // Secure preferences
+    implementation rootProject.ext.securePreferencesDependencies.lib
+
+    // Google services
+    implementation rootProject.ext.googleServicesDependencies.places
+
+    // LoggingInterceptor
+    implementation(rootProject.ext.loggingInterceptorDependencies.lib)
+
+    // OkHttpProfiler
+    implementation rootProject.ext.okHttpprofilerDependencies.lib
+}

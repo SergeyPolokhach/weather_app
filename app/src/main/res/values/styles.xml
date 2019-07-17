@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_gradient</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="android:colorBackground">@color/bg_white</item>
+    </style>
+
+    <style name="Black.TextStyle" parent="AppTheme">
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textColorLink">@color/text_black</item>
+    </style>
+
+    <style name="AvenirRegular.Black.TextStyle" parent="Black.TextStyle">
+        <item name="android:fontFamily">@font/avenir_regular</item>
+    </style>
+
+    <style name="AvenirRegular.BlackBodyMedium.TextStyle" parent="AvenirRegular.Black.TextStyle">
+        <item name="android:textSize">@dimen/body_medium</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+    </style>
+
+</resources>

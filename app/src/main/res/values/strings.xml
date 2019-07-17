@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+
+    <!--error-->
+    <string name="server_error">Server error</string>
+    <string name="no_internet_connection_error">No internet connection</string>
+
+    <string name="search_hint">Search city</string>
+
+    <string name="title_weather">Weather</string>
+    <string name="title_detail_weather">Detail Weather</string>
+    <string name="temperature">Temperature: %.2f</string>
+    <string name="pressure">Pressure: %d</string>
+    <string name="humidity">Humidity: %d</string>
+    <string name="wind_speed">Wind speed: %.2f</string>
+    <string name="description">Description: %s</string>
+    <string name="empty_data_error">No Data</string>
+    <string name="my_location">My Location</string>
+    <string name="default_city_name">Kiev</string>
+    <string name="today">Today</string>
+    <string name="five_days">5 days</string>
+
+</resources>
